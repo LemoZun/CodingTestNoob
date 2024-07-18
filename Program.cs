@@ -2,19 +2,24 @@
 {
     internal class Program
     {
-        public int solution1(int num1, int num2)
+        public int SumTwoNumbers(int num1, int num2)
         {
             int answer = num1 + num2;
             return answer;
         }
-        public int solution2(int num1, int num2)
+        public int MinusTwoNumbers(int num1, int num2)
         {
             int answer = num1 - num2;
             return answer;
         }
-        public int solution3(int num1, int num2)
+        public int MultiTwoNumbers(int num1, int num2)
         {
             int answer = num1 * num2;
+            return answer;
+        }
+        public int DivideTwoNumbers(int num1, int num2)
+        {
+            int answer = num1 / num2;
             return answer;
         }
 
