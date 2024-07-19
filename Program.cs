@@ -27,10 +27,17 @@
             return (int)((float)num1 / num2 * 1000);
             //return 1000*num1/num2;
         }
+        static int Solution(int num1, int num2)
+        {
+            int answer;
+            if (num1 == num2) return answer = 1;
+            else return answer = -1;            
+        }
+
 
         static void Main(string[] args)
         {
-
+            
         }
     }
 }
