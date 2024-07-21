@@ -29,7 +29,7 @@
             return (int)((float)num1 / num2 * 1000);
             //return 1000*num1/num2;
         }
-        static int aolution(int num1, int num2)
+        static int solution6(int num1, int num2)
         {
             int answer;
             if (num1 == num2) return answer = 1;
@@ -65,58 +65,63 @@
         }
         */
 
-
-        public class Solution
+        public int[] solution7(int numer1, int denom1, int numer2, int denom2)
         {
-            public int[] solution(int numer1, int denom1, int numer2, int denom2)
-            {
-                
-                int max = gcd(denom1, denom2);
-                int min = (denom1 * denom2) / max;
 
-                
-                if (denom1 != min)
-                {
-                    denom1 = min;
-                    numer1 = numer1 * (min / denom1);
-                }
+            // 두 분모의 최소공배수 계산
+            int lcm = Lcm(denom1, denom2);
 
-                if (denom2 != min)
-                {
-                    denom2 = min;
-                    numer2 = numer2 * (min / denom2);
-                }
-                int[] answer = new int[2] { numer1 + numer2, max };
-                //{numer1 * denom2 + numer2 * denom1, denom1 * denom2};
+            // 두 분수를 공통 분모로 변환
+            int newNumer1 = numer1 * (lcm / denom1);
+            int newNumer2 = numer2 * (lcm / denom2);
 
-                return answer;
+            // 새로운 분자로 덧셈
+            int finalNumerator = newNumer1 + newNumer2;
+            int finalDenominator = lcm;
+
+            // 결과를 기약분수로 변환
+            int gcd = Gcd(finalNumerator, finalDenominator);
+            finalNumerator /= gcd;
+            finalDenominator /= gcd;
+
+            return new int[] { finalNumerator, finalDenominator };
 
 
-            }
-            public int gcd(int num1, int num2)
-            {
-                if(num1 % num2 == 0)
-                {
-                    return num2;
-                }
-                else
-                {
-                    return gcd(num2, num1 % num2);
-                }
-            }
         }
+        private int Gcd(int a, int b)
+        {
+            while (b != 0)
+            {
+                int temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+        private int Lcm(int a, int b)
+        {
+            return (a * b) / Gcd(a, b);
+        }
+        /// <summary>
+        /// 배열 두배 만들기
+        /// </summary>
+        /// <param name="numbers"></param>
+        /// <returns></returns>
+        static int[] solution8(int[] numbers)
+        {
+            int[] answer = new int[numbers.Length];
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                answer[i] = numbers[i] * 2;
+            }
+            return answer;
+        }
+
 
 
         static void Main(string[] args)
         {
-
-
-            Solution solution = new Solution();
-            int[] answer = new int[2];
-            answer = solution.solution(9, 2, 1, 3);
-
-            Console.WriteLine(answer[0]);
-            Console.WriteLine(answer[1]);
+            
         }
     }
 }
