@@ -116,6 +116,18 @@
             }
             return answer;
         }
+        /// <summary>
+        /// 나머지 구하기
+        /// </summary>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
+        /// <returns></returns>
+        static int solution9(int num1, int num2)
+        {
+            int answer = num1 % num2;
+            return answer;
+        }
+
 
 
 
