@@ -128,12 +128,19 @@
             return answer;
         }
 
+        public int solution10(int[] array)
+        {
+            int answer;
+            Array.Sort(array);
+            int middle = array.Length / 2;
+            return answer = array[middle]; ;
+        }
 
 
 
         static void Main(string[] args)
         {
-            
+
         }
     }
 }
